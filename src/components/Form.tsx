@@ -10,8 +10,8 @@ type FormProps = {
 const Form = ({ storeData, setStoreData }: FormProps) => {
   const [formData, setFormData] = useState({
     title: "",
-    price: null,
-    category: " ",
+    price: null, 
+    category: "",
     description: "",
     image: "",
   });
@@ -57,6 +57,7 @@ const Form = ({ storeData, setStoreData }: FormProps) => {
             onChange={handleChange}
             className="w-full mt-1 p-1 border border-gray-300 rounded-lg"
             placeholder="Enter product title"
+            required
           />
         </div>
 
@@ -72,6 +73,7 @@ const Form = ({ storeData, setStoreData }: FormProps) => {
             onChange={handleChange}
             className="w-full mt-1 p-1 border border-gray-300 rounded-lg"
             placeholder="Enter product price"
+            required
           />
         </div>
 
@@ -90,8 +92,26 @@ const Form = ({ storeData, setStoreData }: FormProps) => {
             className="w-full mt-1 p-1 border border-gray-300 rounded-lg"
             placeholder="Enter product description"
             rows={2}
+            required
           ></textarea>
         </div>
+
+        <div>
+          <label htmlFor="category" className="block text-gray-700 font-medium">
+            Category
+          </label>
+          <input
+            type="text"
+            name="category"
+            id="category"
+            value={formData.category}
+            onChange={handleChange}
+            className="w-full mt-1 p-1 border border-gray-300 rounded-lg"
+            placeholder="Enter product category"
+            required
+          />
+        </div>
+
         <div>
           <label htmlFor="image" className="block text-gray-700 font-medium">
             Image URL
@@ -107,27 +127,13 @@ const Form = ({ storeData, setStoreData }: FormProps) => {
           />
         </div>
 
-        <div>
-          <label htmlFor="category" className="block text-gray-700 font-medium">
-            Category
-          </label>
-          <input
-            type="text"
-            name="category"
-            id="category"
-            value={formData.category}
-            onChange={handleChange}
-            className="w-full mt-1 p-1 border border-gray-300 rounded-lg"
-            placeholder="Enter product category"
-          />
-        </div>
 
         <div className="mt-4">
           <button
             type="submit"
             className="bg-blue-600 text-white py-1 px-4 rounded-lg hover:bg-blue-700 transition duration-300 w-full"
           >
-            Add to Cart
+            Add Product
           </button>
         </div>
       </div>
